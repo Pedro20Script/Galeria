@@ -24,7 +24,7 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.widget.Toast;
 
-import android.
+import android.Manifest;
 import java.io.File;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
