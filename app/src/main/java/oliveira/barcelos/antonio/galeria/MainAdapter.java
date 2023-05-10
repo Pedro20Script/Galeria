@@ -20,6 +20,7 @@ public class MainAdapter extends RecyclerView.Adapter {
 
 }
 
+    //Define o que vai ser adicionado ao recycleView
     @NonNull
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -28,6 +29,7 @@ public class MainAdapter extends RecyclerView.Adapter {
         return new MyViewHolder(v);
     }
 
+    //Define o conteudo do que vai ser adicionado ao recycleView
     @Override
     public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int position) {
         ImageView imPhoto = holder.itemView.findViewById(R.id.imItem);
@@ -43,9 +45,7 @@ public class MainAdapter extends RecyclerView.Adapter {
         });
     }
 
-
-
-
+    //Define quantos itens vão ser adicionados no recycleView
     @Override
     public int getItemCount() {
         return photos.size();

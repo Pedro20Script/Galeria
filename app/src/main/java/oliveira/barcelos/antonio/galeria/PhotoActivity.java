@@ -48,6 +48,7 @@ public class PhotoActivity extends AppCompatActivity {
         return true;
     }
 
+    //Chama a função de compartilhar ao clickar no botao de compartilhar
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()) {
@@ -59,6 +60,7 @@ public class PhotoActivity extends AppCompatActivity {
             }
     }
 
+    //Função responsavel pelo compartilhamento da imagem
     void sharePhoto() {
         // Codigo para cpmpartiilhar a foto
         Uri photoUri = FileProvider.getUriForFile(PhotoActivity.this, "oliveira.barcelos.antonio.galeria.fileprovider", new File(photoPath));

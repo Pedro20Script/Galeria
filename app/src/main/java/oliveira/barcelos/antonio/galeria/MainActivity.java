@@ -78,6 +78,7 @@ public class MainActivity extends AppCompatActivity {
         return true;
     }
 
+    //Definir o comando de click no botao de camera
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()) {
@@ -89,12 +90,14 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    //Indica qual foto deve ser usada na photo activity
     public void startPhotoActivity(String photoPath) {
         Intent i = new Intent(MainActivity.this, PhotoActivity.class);
         i.putExtra("photo_path", photoPath);
         startActivity(i);
     }
 
+    //Cria um arquivo vazio e o envia para a app de camera
     private void dispatchTakePictureIntent() {
         File f = null;
         try {
@@ -111,6 +114,8 @@ public class MainActivity extends AppCompatActivity {
             startActivityForResult(i, RESULT_TAKE_PICTURE);
         }
     }
+
+    //Cria o arquivo vazio
     private File createImageFile() throws IOException {
         String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date());
         String imageFileName = "JPEG_" + timeStamp;
@@ -118,6 +123,8 @@ public class MainActivity extends AppCompatActivity {
         File f = File.createTempFile(imageFileName, ".jpg", storageDir);
         return f;
     }
+
+    //Pega a resposta enviada pela camera e adiciona a foto ou apaga o arquivo vazio
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
@@ -132,6 +139,8 @@ public class MainActivity extends AppCompatActivity {
             }
         }
     }
+
+    //Verifica a permissao da camera
     private void checkForPermissions(List<String> permissions) {
         List<String> permissionsNotGranted = new ArrayList<>();
         for(String permission : permissions) {
@@ -145,12 +154,16 @@ public class MainActivity extends AppCompatActivity {
             }
         }
     }
+
+    //Checa se já recebeu a permissão
     private boolean hasPermission(String permission) {
         if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             return ActivityCompat.checkSelfPermission(MainActivity.this, permission) == PackageManager.PERMISSION_GRANTED;
         }
         return false;
     }
+
+    //Roda depois de o usuario conceder ou não a permissão
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull
     String[] permissions, @NonNull int[] grantResults) {
