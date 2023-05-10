@@ -61,7 +61,7 @@ public class PhotoActivity extends AppCompatActivity {
 
     void sharePhoto() {
         // Codigo para cpmpartiilhar a foto
-        Uri photoUri = FileProvider.getUriForFile(PhotoActivity.this, "trindade.daniel.galeria.fileprovider", new File(photoPath));
+        Uri photoUri = FileProvider.getUriForFile(PhotoActivity.this, "oliveira.barcelos.antonio.galeria.fileprovider", new File(photoPath));
         Intent i = new Intent(Intent.ACTION_SEND);
         i.putExtra(Intent.EXTRA_STREAM, photoUri);
         i.setType("image/jpeg");

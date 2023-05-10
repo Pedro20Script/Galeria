@@ -1,6 +1,7 @@
 package oliveira.barcelos.antonio.galeria;
 
 import android.graphics.Bitmap;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
@@ -16,12 +17,15 @@ public class MainAdapter extends RecyclerView.Adapter {
     public MainAdapter(MainActivity mainActivity, List<String> photos) {
         this.mainActivity = mainActivity;
         this.photos = photos;
+
 }
 
     @NonNull
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        return null;
+        LayoutInflater inflater = LayoutInflater.from(mainActivity);
+        View v = inflater.inflate(R.layout.list_item,parent,false);
+        return new MyViewHolder(v);
     }
 
     @Override
@@ -44,7 +48,7 @@ public class MainAdapter extends RecyclerView.Adapter {
 
     @Override
     public int getItemCount() {
-        return 0;
+        return photos.size();
     }
 }
 
